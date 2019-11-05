@@ -1,53 +1,41 @@
 import React, { Component } from 'react'
 import {Carousel} from "react-bootstrap";
-import axios from 'axios'
+import {NavLink } from "react-router-dom";
 
 export default class LargeNewsCard extends Component {
-    state= {
-        response:null
-     };
-    componentDidMount() {
-        
-        let currentObj = this
-        axios.get('https://api.nytimes.com/svc/mostpopular/v2/shared/1/facebook.json?api-key=N8ptVHWKlcRDAhcHHytrX0MrTUoyCn1V')
-      .then(function (response) {
-        // handle success
-        
-         currentObj.setState({response})
-         
-         
-          
-         
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-        
-      })
-      }
+    
+
+      
     render() {
        
-        let img =this.state.response == null ? [] : this.state.response.data.results.map((value,index)=>{
+        let img =this.props.response == null ? [] : this.props.response.data.articles.map((value,index)=>{
             
-                return value.media[0]['media-metadata'][2].url
+                return value.urlToImage
          })
 
-         let title =this.state.response == null ? [] : this.state.response.data.results.map((value,index)=>{
+         let title =this.props.response == null ? [] : this.props.response.data.articles.map((value,index)=>{
             
             return value.title
      })
 
-     let abstract =this.state.response == null ? [] : this.state.response.data.results.map((value,index)=>{
+     let abstract =this.props.response == null ? [] : this.props.response.data.articles.map((value,index)=>{
             
         return value.abstract
  })
+ let url =this.props.response == null ? [] : this.props.response.data.articles.map((value,index)=>{
+            
+    return value.url
+})
+ 
          
          
      
         return (
             <Carousel className="mb-4">
+            
+    
   <Carousel.Item>
- 
+   <NavLink to={`/details/0`}>
     <img
       className="d-block w-100"
       src={img[0]}
@@ -58,8 +46,12 @@ export default class LargeNewsCard extends Component {
       <h3>{title[0]}</h3>
       <p>{abstract[0]}</p>
     </Carousel.Caption>
+    </NavLink>
   </Carousel.Item>
+
+
   <Carousel.Item>
+  <NavLink to={`/details/1`}>
     <img
       className="d-block w-100"
       src={img[1]}
@@ -71,8 +63,11 @@ export default class LargeNewsCard extends Component {
       <h3>{title[1]}</h3>
       <p>{abstract[1]}</p>
     </Carousel.Caption>
+    </NavLink>
   </Carousel.Item>
+
   <Carousel.Item>
+  <NavLink to={`/details/5`}>
     <img
       className="d-block w-100"
       src={img[5]}
@@ -84,6 +79,7 @@ export default class LargeNewsCard extends Component {
       <h3>{title[5]}</h3>
       <p>{abstract[5]}</p>
     </Carousel.Caption>
+    </NavLink>
   </Carousel.Item>
 </Carousel>
         )

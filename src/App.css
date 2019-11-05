@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  /* background-image: url('https://images.unsplash.com/photo-1541613569553-332a2574a508?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80'); */
 }
 
 .App-logo {
@@ -24,8 +25,8 @@
 .grid{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
- 
+
   margin: auto;
   gap: 10px;
-
 }
+

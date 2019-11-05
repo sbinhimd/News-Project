@@ -1,68 +1,94 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# News App
 
-## Available Scripts
+ news from multiple resourses
 
-In the project directory, you can run:
+## Description
 
-### `yarn start`
+this project fouces on making news easy to reach from multiple resourses so the reader can find what he wants in one website .
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Technical Used 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```
 
-### `yarn test`
+- Reactjs
+- Bootstrap with react
+- axios for API
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
 
-### `yarn build`
+### Wireframes
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Your step by step planning sketch of your project, that you can post them as an image in here.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### User Stories
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A story of the project user, that explains the use of the project.
 
-### `yarn eject`
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+User must be able to:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- View all the news on one place
+- go to the source of the news
+- Search for news
+- filter news
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## Planning and Development Process
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+A basic story of your planning and developing this project.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Day 1
+- created 3 components
+- created router
+- created axios api request
+- style with react bootstrap
 
-### Code Splitting
+### Day 2
+- created more components
+- changed the api
+- relocated the api to reduse requests
+- displayd api content
+- added button to the source of news 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Day 3
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Day 4
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Problem-Solving Strategy
 
-### Advanced Configuration
+What strategy did you use to solve your problems.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- console logs 
+- browser react developer tool
+- following the website life cicle
 
-### Deployment
+### Unsolved problems
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+List unsolved problems which would be fixed in future iterations.
 
-### `yarn build` fails to minify
+## APIs Used
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+List your APIs you have used in this project and explain why did you use it.
+
+- https://newsapi.org/
+this api is for the news
+
+
+
+---
+
+## Acknowledgments
+
+thanks to the instructing team for the amazing experience, i have learned alot of new stuff
+
+---
+
+ ## References
+ - react bootstrap
+ - react docs
