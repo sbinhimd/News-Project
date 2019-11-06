@@ -8,6 +8,7 @@ import axios from "axios";
 import NewsDetails from "./component/NewsDetails";
 import SearchResults from "./component/SearchResults";
 
+
 export default class App extends Component {
   state = {
     response: null,

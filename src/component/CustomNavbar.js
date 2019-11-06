@@ -8,6 +8,7 @@ import {
   Form
 } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 export default class CustomNavbar extends Component {
   state = {
@@ -26,8 +27,20 @@ export default class CustomNavbar extends Component {
   };
 
   Search = () => {
+
     console.log(this.state.word);
-    this.props.SearchHandler(this.state.word);
+    if(this.state.word==null){
+      Swal.fire({
+        position: 'top-end',
+        icon: null,
+        title: 'Type Something First',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }else{
+      this.props.SearchHandler(this.state.word);
+    }
+    
   };
 
   render() {

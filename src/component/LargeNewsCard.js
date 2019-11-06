@@ -32,7 +32,7 @@ export default class LargeNewsCard extends Component {
           });
 
     return (
-      <Carousel className="mb-4">
+      <Carousel className="mb-4" interval="3000">
         <Carousel.Item>
           <NavLink to={`/details/0`}>
             <img

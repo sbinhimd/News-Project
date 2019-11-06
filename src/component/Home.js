@@ -26,6 +26,7 @@ export default class Home extends Component {
     return (
       <div>
         <LargeNewsCard response={this.props.response} />
+        <h2>Top Headlines</h2>
         <div className="grid" >{obj}</div>
       </div>
     );
