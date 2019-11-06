@@ -55,12 +55,17 @@ export default class CustomNavbar extends Component {
             <NavLink className="nav-link" to="/">
               Home
             </NavLink>
-            <NavLink className="nav-link" to="/link">
-              Link
-            </NavLink>
-            <NavDropdown title="Section" id="basic-nav-dropdown">
+
+            <NavDropdown title="Source" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/wsj">Wall Street Journal</NavDropdown.Item>
+              <NavDropdown.Item href="/NewYorkTimes">New York Times</NavDropdown.Item>
+              <NavDropdown.Item href="/Engadget">Engadget</NavDropdown.Item>
+              
+            </NavDropdown>
+            
+            <NavDropdown title="Category" id="basic-nav-dropdown">
               <NavDropdown.Item href="/Business">Business</NavDropdown.Item>
-              <NavDropdown.Item href="/World">World</NavDropdown.Item>
+              <NavDropdown.Item href="/Technology">Technology</NavDropdown.Item>
               <NavDropdown.Item href="/Arts">Arts</NavDropdown.Item>
               <NavDropdown.Item href="/Opinion">Opinion</NavDropdown.Item>
               <NavDropdown.Item href="/U.S">U.S</NavDropdown.Item>

@@ -13,12 +13,15 @@ this project fouces on making news easy to reach from multiple resourses so the 
 - Reactjs
 - Bootstrap with react
 - axios for API
+- sweetalert 2
 
 ```
 
 ### Wireframes
 
-Your step by step planning sketch of your project, that you can post them as an image in here.
+![](./Home.png)
+![](./Details.png)
+![](./Search.png)
 
 ### User Stories
 
@@ -31,7 +34,8 @@ User must be able to:
 - View all the news on one place
 - go to the source of the news
 - Search for news
-- filter news
+- filter news by catogry
+- filter news by source
 
 ```
 
@@ -55,10 +59,16 @@ A basic story of your planning and developing this project.
 - added button to the source of news 
 
 ### Day 3
-
+- created news search (still in progress)
+- created search component
+- created states and set states
 
 ### Day 4
-
+- added styling
+- added animation
+- done with news search
+- created news source
+- created news catogry
 
 ### Problem-Solving Strategy
 
@@ -92,3 +102,4 @@ thanks to the instructing team for the amazing experience, i have learned alot o
  ## References
  - react bootstrap
  - react docs
+ - sweetalert 2

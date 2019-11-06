@@ -7,6 +7,14 @@ import Home from "./component/Home";
 import axios from "axios";
 import NewsDetails from "./component/NewsDetails";
 import SearchResults from "./component/SearchResults";
+import Business from "./component/Business";
+import Technology from "./component/Technology";
+import WallStreetJournal from "./component/WallStreetJournal";
+import NewYorkTimes from "./component/NewYorkTimes";
+
+
+
+
 
 
 export default class App extends Component {
@@ -73,6 +81,41 @@ export default class App extends Component {
                   {...props}
                   key={props.match.params.word}
                   response={this.state.responseSearch}
+                />
+              )}
+            />
+            <Route
+              path="/Business"
+              render={props => (
+                <Business
+                  {...props}
+                />
+              )}
+            />
+
+<Route
+              path="/Technology"
+              render={props => (
+                <Technology
+                  {...props}
+                />
+              )}
+            />
+
+<Route
+              path="/wsj"
+              render={props => (
+                <WallStreetJournal
+                  {...props}
+                />
+              )}
+            />
+
+<Route
+              path="/NewYorkTimes"
+              render={props => (
+                <NewYorkTimes
+                  {...props}
                 />
               )}
             />

@@ -4,7 +4,11 @@ import "../App.css";
 import LargeNewsCard from "./LargeNewsCard";
 
 export default class Home extends Component {
+  
+    
+  
   render() {
+     
     console.log(this.props.response);
 
     let obj =
