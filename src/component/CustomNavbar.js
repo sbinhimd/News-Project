@@ -8,33 +8,28 @@ import {
   Form
 } from "react-bootstrap";
 import {NavLink } from "react-router-dom";
-import axios from 'axios'
-import SearchResults from './SearchResults'
 
 
 export default class CustomNavbar extends Component {
+
+  state={
+word:null
+}
+  myChangeHandler = (event) => {
+    console.log('val',event.target.value);
+    
+    this.setState({wordClone: event.target.value});
+    
+
+    this.props.SearchHandler(event.target.value);
+    /////////////this code is for search////////////// 
+    //////////////////////////////////////////////////
+    // this.props.SearchHandler(event.target.value);//
+  }
+
   
-
-  // SearchHandler = (e)=>{
-  //   e.preventDefault()
-    
-  //   this.props.response.setState({word :e.target.value })
-    //  let currentObj = this
-   
-    // var text = e.target.elements.search.value
-    // console.log("text before set:", text);
-    // currentObj.setState({
-    //   word:text
-      
-    // })
-    // console.log("text after set:", text);
-    
-
-  // }
-
   render() {
 
-    console.log('the response',this.props);
     return (
         <Navbar sticky="top" bg="dark" variant="dark" expand="lg">
          
@@ -62,13 +57,13 @@ export default class CustomNavbar extends Component {
             </Nav>
             <Form inline >
               <FormControl
-              onChange={this.props.SearchHandler}
+              onChange={this.myChangeHandler}
                 type="text"
                 placeholder="Search"
                 className="mr-sm-2 search"
                 name="search"   
               />
-              <NavLink to={`/SearchResults/${this.props.word}`}  ><Button onClick={()=>console.log(this.props.word)} type="submit" variant="outline-success">Search</Button></NavLink>
+              <NavLink to={`/SearchResults/${this.props.word}`}  ><Button onClick={()=>{this.props.SearchHandler()}} name="search" type="submit" variant="outline-success">Search</Button></NavLink>
             </Form>
           </Navbar.Collapse>
         </Navbar>

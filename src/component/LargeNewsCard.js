@@ -5,7 +5,6 @@ import {NavLink } from "react-router-dom";
 export default class LargeNewsCard extends Component {
     
 
-      
     render() {
        
         let img =this.props.response == null ? [] : this.props.response.data.articles.map((value,index)=>{
@@ -27,9 +26,6 @@ export default class LargeNewsCard extends Component {
     return value.url
 })
  
-         
-         
-     
         return (
             <Carousel className="mb-4">
             

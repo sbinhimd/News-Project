@@ -7,7 +7,7 @@ export default class NewsCard extends Component {
     render() {
         return (
        
-            
+     <NavLink to={`/details/${this.props.id}`}>    
   <Card md="auto" style={{ width: '30rem' }}>
   <Card.Img variant="top" src={this.props.image} />
   <Card.Body>
@@ -16,9 +16,10 @@ export default class NewsCard extends Component {
     {this.props.abstract}
     </Card.Text>
     {/* <Button href={this.props.url} variant="primary">Read More</Button> */}
-    <NavLink to={`/details/${this.props.id}`}><Button variant="primary">Read More</Button></NavLink> 
+    
   </Card.Body>
 </Card>
+</NavLink> 
 
 
         )

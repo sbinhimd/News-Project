@@ -10,13 +10,13 @@ import SearchResults from './component/SearchResults';
 
 
 
-
-
 export default class App extends Component {
+
+ 
   state= {
     response:null,
     responseSearch:null,
-    word:"default"
+    word:"apple"
  };
 componentDidMount() {
     
@@ -35,17 +35,23 @@ componentDidMount() {
   })
 }
 //axios 2
-SearchHandler=(e)=>{
-  axios.get(`https://newsapi.org/v2/everything?q=${this.state.word}&apiKey=7a1908d04c2740e7924b15b67514f428`)
+SearchHandler=(childData)=>{
+  let currentObj = this
+  //problem
+  this.setState({word: childData})
+  
+  console.log('final',this.state.word);
+  
+  axios.get(`https://newsapi.org/v2/everything?q=${currentObj.state.word}&apiKey=7a1908d04c2740e7924b15b67514f428`)
   .then(function (response) {
     // handle success
-    var text = e.target.elements.search.value
-     this.setState({
+    
+    currentObj.setState({
        responseSearch:response,
-       word:text
+      //  word:"new"
     
     })
-     console.log("you will see results", this.state.responseSearch);
+     
      
   })
   .catch(function (error) {
@@ -60,7 +66,7 @@ SearchHandler=(e)=>{
     return (
       <div className="App">
     <Router>
-      <CustomNavbar SearchHandler={this.SearchHandler()} word={this.state.word} />
+      <CustomNavbar  SearchHandler={this.SearchHandler} word={this.state.word} state={this.state} />
       <Switch>
           <Route exact path="/" render={(props) => <Home {...props} response={this.state.response} />} />
           {/* <Route path="/about" component={About} /> */}
