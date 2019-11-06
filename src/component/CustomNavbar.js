@@ -13,18 +13,23 @@ import {NavLink } from "react-router-dom";
 export default class CustomNavbar extends Component {
 
   state={
-word:null
-}
+    word:null
+  }
   myChangeHandler = (event) => {
     console.log('val',event.target.value);
     
-    this.setState({wordClone: event.target.value});
-    
+    this.setState({word: event.target.value});
+    //pass this state to app state
 
-    this.props.SearchHandler(event.target.value);
+    //  this.props.SearchHandler(event.target.value);
     /////////////this code is for search////////////// 
     //////////////////////////////////////////////////
     // this.props.SearchHandler(event.target.value);//
+  }
+
+  Search = () => {
+    console.log(this.state.word)
+    this.props.SearchHandler(this.state.word)
   }
 
   
@@ -63,7 +68,9 @@ word:null
                 className="mr-sm-2 search"
                 name="search"   
               />
-              <NavLink to={`/SearchResults/${this.props.word}`}  ><Button onClick={()=>{this.props.SearchHandler()}} name="search" type="submit" variant="outline-success">Search</Button></NavLink>
+              {/* <NavLink to={`/SearchResults/${this.props.word}`}  > */}
+              <Button onClick={this.Search} name="search" variant="outline-success">Search</Button>
+              {/* </NavLink> */}
             </Form>
           </Navbar.Collapse>
         </Navbar>

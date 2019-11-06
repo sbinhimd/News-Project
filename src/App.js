@@ -39,26 +39,26 @@ SearchHandler=(childData)=>{
   let currentObj = this
   //problem
   this.setState({word: childData})
-  
+  console.log("child",childData)
   console.log('final',this.state.word);
-  
-  axios.get(`https://newsapi.org/v2/everything?q=${currentObj.state.word}&apiKey=7a1908d04c2740e7924b15b67514f428`)
-  .then(function (response) {
-    // handle success
+   window.location.href = `/SearchResults/${childData}`;
+
+//   axios.get(`https://newsapi.org/v2/everything?q=${currentObj.state.word}&pageSize=35&apiKey=7a1908d04c2740e7924b15b67514f428`)
+//   .then(function (response) {
+//     // handle success
+//     console.log("click")
+//     currentObj.setState({
+//        responseSearch:response,
+//       //  word:"new"
     
-    currentObj.setState({
-       responseSearch:response,
-      //  word:"new"
+//     })
+// // redirect was here
+//   })
+//   .catch(function (error) {
+//     // handle error
+//     console.log(error);
     
-    })
-     
-     
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-    
-  })
+//   })
 
 }
    
@@ -72,7 +72,7 @@ SearchHandler=(childData)=>{
           {/* <Route path="/about" component={About} /> */}
           <Route path="/details/:id" render={(props) => <NewsDetails {...props} response={this.state.response} />} />
           {/* <Route path="/Gallery/:name" component={GalleryList} />  */}
-          <Route path="/SearchResults/:word" render={(props) => <SearchResults {...props} response={this.state.responseSearch} />}/>
+          <Route path="/SearchResults/:word" render={(props) => <SearchResults {...props} key={props.match.params.word} response={this.state.responseSearch} />}/>
           <Route path="*" component={NotFound} />
           
         </Switch>
