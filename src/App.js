@@ -1,84 +1,84 @@
-import React, { Component } from 'react'
-import './App.css';
+import React, { Component } from "react";
+import "./App.css"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import CustomNavbar from './component/CustomNavbar';
-import NotFound from './component/NotFound';
-import Home from './component/Home';
-import axios from 'axios'
-import NewsDetails from './component/NewsDetails';
-import SearchResults from './component/SearchResults';
-
-
+import CustomNavbar from "./component/CustomNavbar";
+import NotFound from "./component/NotFound";
+import Home from "./component/Home";
+import axios from "axios";
+import NewsDetails from "./component/NewsDetails";
+import SearchResults from "./component/SearchResults";
 
 export default class App extends Component {
+  state = {
+    response: null,
+    responseSearch: null,
+    word: "apple"
+  };
+  componentDidMount() {
+    let currentObj = this;
+    axios
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=us&apiKey=7a1908d04c2740e7924b15b67514f428"
+      )
+      .then(function(response) {
+        // handle success
 
- 
-  state= {
-    response:null,
-    responseSearch:null,
-    word:"apple"
- };
-componentDidMount() {
-    
-    let currentObj = this
-    axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=7a1908d04c2740e7924b15b67514f428')
-  .then(function (response) {
-    // handle success
-    
-     currentObj.setState({response})
-     
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-    
-  })
-}
-//axios 2
-SearchHandler=(childData)=>{
-  let currentObj = this
-  //problem
-  this.setState({word: childData})
-  console.log("child",childData)
-  console.log('final',this.state.word);
-   window.location.href = `/SearchResults/${childData}`;
+        currentObj.setState({ response });
+      })
+      .catch(function(error) {
+        // handle error
+        console.log(error);
+      });
+  }
+  //axios 2
+  SearchHandler = childData => {
+    let currentObj = this;
+    //problem
+    this.setState({ word: childData });
+    console.log("child", childData);
+    console.log("final", this.state.word);
+    window.location.href = `/SearchResults/${childData}`;
+  };
 
-//   axios.get(`https://newsapi.org/v2/everything?q=${currentObj.state.word}&pageSize=35&apiKey=7a1908d04c2740e7924b15b67514f428`)
-//   .then(function (response) {
-//     // handle success
-//     console.log("click")
-//     currentObj.setState({
-//        responseSearch:response,
-//       //  word:"new"
-    
-//     })
-// // redirect was here
-//   })
-//   .catch(function (error) {
-//     // handle error
-//     console.log(error);
-    
-//   })
-
-}
-   
   render() {
     return (
       <div className="App">
-    <Router>
-      <CustomNavbar  SearchHandler={this.SearchHandler} word={this.state.word} state={this.state} />
-      <Switch>
-          <Route exact path="/" render={(props) => <Home {...props} response={this.state.response} />} />
-          {/* <Route path="/about" component={About} /> */}
-          <Route path="/details/:id" render={(props) => <NewsDetails {...props} response={this.state.response} />} />
-          {/* <Route path="/Gallery/:name" component={GalleryList} />  */}
-          <Route path="/SearchResults/:word" render={(props) => <SearchResults {...props} key={props.match.params.word} response={this.state.responseSearch} />}/>
-          <Route path="*" component={NotFound} />
-          
-        </Switch>
-      </Router>
-    </div>
-    )
+        <Router>
+          <CustomNavbar
+            SearchHandler={this.SearchHandler}
+            word={this.state.word}
+            state={this.state}
+          />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={props => (
+                <Home {...props} response={this.state.response} />
+              )}
+            />
+            {/* <Route path="/about" component={About} /> */}
+            <Route
+              path="/details/:id"
+              render={props => (
+                <NewsDetails {...props} response={this.state.response} />
+              )}
+            />
+            {/* <Route path="/Gallery/:name" component={GalleryList} />  */}
+            <Route
+              path="/SearchResults/:word"
+              render={props => (
+                <SearchResults
+                  {...props}
+                  key={props.match.params.word}
+                  response={this.state.responseSearch}
+                />
+              )}
+            />
+            <Route path="*" component={NotFound} />
+          </Switch>
+        </Router>
+      </div>
+    );
   }
 }
-

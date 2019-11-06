@@ -25,8 +25,42 @@
 .grid{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-
-  margin: auto;
+  margin-left: 10px;
   gap: 10px;
+
+}
+.Card:hover{
+  outline-width: 20px;
+}
+.hov{
+  -webkit-transition: margin 1s, width 1s, height 1s, -webkit-transform 1s; /* Safari */
+  transition: margin 1s, width 1s, height 1s, transform 1s;
+}
+.hov:hover{
+  opacity: 0.9;
+  -webkit-transform:  scale(1.2, 1.2); /* Safari */
+  transform: scale(1.1, 1.1);
+  margin: 20px;
+ 
+}
+
+@media only screen and (max-width: 1210px){
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 10px;
+    gap: 10px;
+  
+  }
+}
+
+@media only screen and (max-width: 854px){
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: 5px;
+    gap: 10px;
+  
+  }
 }
 
