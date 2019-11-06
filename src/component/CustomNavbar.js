@@ -47,7 +47,7 @@ export default class CustomNavbar extends Component {
     return (
       <Navbar sticky="top" bg="dark" variant="dark" expand="lg">
         <Navbar.Brand to="/">
-          <h1>NEWS</h1>
+          <h1>World News</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
